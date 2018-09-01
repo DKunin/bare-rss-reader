@@ -1,0 +1,7 @@
+{
+  "title": "RSS Reader",
+  "description": "Read dat:// RSS feeds",
+  "type": [
+    "application"
+  ]
+}

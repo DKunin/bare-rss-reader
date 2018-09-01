@@ -1,0 +1,30 @@
+{
+  "name": "bare-rss-reader",
+  "version": "1.0.0",
+  "description": "An simplistic rss-reader, only on frontend, can work with dat feeds",
+  "main": "index.js",
+  "scripts": {
+    "build": "browserify index.js > index.bundle.js",
+  },
+  "repository": {
+    "type": "git",
+  },
+  "keywords": [
+    "dat",
+    "rss",
+    "reader"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "/issues"
+  },
+  "homepage": "#readme",
+  "dependencies": {
+    "choo": "^5.4.0",
+    "feedme": "^1.0.0",
+    "rss-parser": "3.4.3"
+  },
+  "devDependencies": {
+    "browserify": "^14.3.0"
+  }
+}
