@@ -4,10 +4,10 @@
   "description": "An simplistic rss-reader, only on frontend, can work with dat feeds",
   "main": "index.js",
   "scripts": {
-    "build": "browserify index.js > index.bundle.js",
+    "build": "browserify index.js > index.bundle.js"
   },
   "repository": {
-    "type": "git",
+    "type": "git"
   },
   "keywords": [
     "dat",
@@ -22,6 +22,7 @@
   "dependencies": {
     "choo": "^5.4.0",
     "feedme": "^1.0.0",
+    "nanohtml": "1.2.4",
     "rss-parser": "3.4.3"
   },
   "devDependencies": {

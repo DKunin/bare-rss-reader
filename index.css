@@ -1,97 +1,141 @@
-.inbox {
-  flex: 1;
+.inbox
+{
+    flex: 1;
 }
-.inbox .item {
-  display: flex;
-  border-top: 1px solid #ddd;
-  padding: 0.5rem 0;
-  color: #555;
-  align-items: center;
+.inbox .item
+{
+ 
+    padding: .5rem 0;
+
+    color: #555;
+    border-top: 1px solid #ddd;
+
 }
-.inbox .item:hover {
-  background: #fafafa;
+.inbox .item:hover
+{
+    background: #fafafa;
 }
-.inbox .item .source {
-  flex: 0 0 120px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: pre;
+.inbox .item .source
+{
+    overflow: hidden;
+
+    white-space: pre;
+    text-overflow: ellipsis;
+
+    flex: 0 0 120px;
 }
-.inbox .item .source a {
-  color: #555;
+.inbox .item .source a
+{
+    color: #555;
 }
-.inbox .item .title {
-  flex: 1;
+.inbox .item .title
+{
+    flex: 1;
 }
-.inbox .item .pubdate {
-  font-size: 13px;
+.inbox .item .pubdate
+{
+    font-size: 13px;
 }
-.inbox .intro {
-  background: #fafafa;
-  padding: 1rem 2rem;
-  color: #666;
+.inbox .intro
+{
+    padding: 1rem 2rem;
+
+    color: #666;
+    background: #fafafa;
 }
-.sources-list {
-  flex: 0 0 300px;
-  margin-right: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 3px;
+.sources-list
+{
+    margin-right: 1rem;
+
+    border: 1px solid #ccc;
+    border-radius: 3px;
+
+    flex: 0 0 300px;
 }
-.sources-list form {
-  display: flex;
+.sources-list form
+{
+    display: flex;
 }
-.sources-list input {
-  flex: 1;
-  padding: 0.3rem 0.4rem;
-  font-size: 14px;
-  font-weight: 100;
-  border: 0;
-  border-bottom: 1px solid #ddd;
-  border-radius: 3px 0px 0px 0;
+.sources-list input
+{
+    font-size: 14px;
+    font-weight: 100;
+
+    padding: .3rem .4rem;
+
+    border: 0;
+    border-bottom: 1px solid #ddd;
+    border-radius: 3px 0 0 0;
+
+    flex: 1;
 }
-.sources-list button {
-  background: #eee;
-  border: 0;
-  border-left: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
-  border-radius: 0 3px 0 0;
-  color: #666;
-  padding: 0 0.5rem;
+.sources-list button
+{
+    padding: 0 .5rem;
+
+    color: #666;
+    border: 0;
+    border-bottom: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    border-radius: 0 3px 0 0;
+    background: #eee;
 }
-.sources-list .source {
-  padding: 0.3rem 0.4rem;
-  border-bottom: 1px solid #ddd;
-  max-width: 287px;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.sources-list .source
+{
+    overflow: hidden;
+
+    max-width: 287px;
+    padding: .3rem .4rem;
+
+    text-overflow: ellipsis;
+
+    border-bottom: 1px solid #ddd;
 }
-.sources-list .source:last-child {
-  border: 0;
+.sources-list .source:last-child
+{
+    border: 0;
 }
-.sources-list .source .remove {
-  float: right;
-  cursor: pointer;
-  color: #989494;
-  font-weight: bold;
+.sources-list .source .remove
+{
+    font-weight: bold;
+
+    float: right;
+
+    cursor: pointer;
+
+    color: #989494;
 }
-.sources-list .source .error {
-  color: #c00;
-  font-size: 12px;
+.sources-list .source .error
+{
+    font-size: 12px;
+
+    color: #c00;
 }
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Ubuntu, Cantarell, "Oxygen Sans", "Helvetica Neue", sans-serif;
+body
+{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Ubuntu, Cantarell, 'Oxygen Sans', 'Helvetica Neue', sans-serif;
 }
-main {
-  display: flex;
-  align-items: flex-start;
+main
+{
+    display: flex;
+
+    align-items: flex-start;
 }
-h1 small {
-  font-size: 14px;
-  font-weight: 100;
+h1 small
+{
+    font-size: 14px;
+    font-weight: 100;
 }
-a {
-  text-decoration: none;
+a
+{
+    text-decoration: none;
 }
-a:hover {
-  text-decoration: underline;
+a:hover
+{
+    text-decoration: underline;
 }
+
+.description img {
+  display: none;
+}
+.
