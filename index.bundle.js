@@ -32,17 +32,11 @@ module.exports = function(state, emit) {
     </div>`
       : ''}
     ${state.inbox
-      .sort(function(a, b) {
-        return new Date(b.pubdate || b.pubDate) - new Date(a.pubdate || a.pubDate);
-      })
+      .slice(0, 20)
       .map(item => {
-        var url = fixUrl(item.link, item.source.origin);
+        var url = fixUrl(item.link, item.origin);
         return html`<div class="item">
         <div class="source">
-          <a href=${item.source.origin} target="_blank">${item.source.feed
-          .title}</a>
-        </div>
-        <div class="title">
           <a href=${url} target="_blank">${item.title}</a>
         </div>
         <div class="description">
@@ -57,6 +51,9 @@ module.exports = function(state, emit) {
 };
 
 function fixUrl(link, sourceOrigin) {
+  if (!sourceOrigin) {
+    return '';
+  }
   if (link && link.href) {
     link = link.href;
   }
@@ -125,16 +122,43 @@ function times () {
 }
 },{"choo/html":16}],4:[function(require,module,exports){
 module.exports = (state, emitter) => {
-  state.inbox = []
+    state.inbox = [];
 
-  emitter.on('source-added', onSourcesChange)
-  emitter.on('source-removed', onSourcesChange)
-  function onSourcesChange () {
-    state.inbox = [].concat(...state.sources.filter(s => s.feed).map(s => s.feed.items))
-    state.inbox.sort((a, b) => (+b.pubdate) - (+a.pubdate))
-    emitter.emit('render')
-  }
-}
+    emitter.on('DOMContentLoaded', () => {
+        try {
+            state.inbox = JSON.parse(localStorage.getItem('inbox'));
+            onSourcesChange();
+        } catch (e) {}
+    });
+
+    emitter.on('source-added', onSourcesChange);
+    emitter.on('source-removed', onSourcesChange);
+
+    function onSourcesChange() {
+        state.inbox = state.inbox.concat(
+            ...state.sources.filter(s => s.feed).map(s => s.feed.items)
+        );
+
+        let uniqueGuids = [];
+        state.inbox
+            .sort(function(a, b) {
+                return (
+                    new Date(b.pubdate || b.pubDate) -
+                    new Date(a.pubdate || a.pubDate)
+                );
+            })
+            .reduce(function(newArray, singleItem) {
+                if (uniqueGuids.includes(singleItem.guid)) {
+                    return newArray;
+                }
+                uniqueGuids.push(singleItem.guid);
+                return newArray.concat(singleItem);
+            }, []);
+        localStorage.setItem('inbox', JSON.stringify(state.inbox));
+        emitter.emit('render');
+    }
+};
+
 },{}],5:[function(require,module,exports){
 const FeedMe = require('feedme');
 const RSSParser = require('rss-parser');
@@ -179,8 +203,8 @@ module.exports = (state, emitter) => {
       }
 
       source.feed.items.forEach(item => {
-        console.log(item);
-        item.source = source;
+
+        item.origin = source.feed.origin;
       });
     } catch (e) {
       console.error('Error loading feed', source, e);
